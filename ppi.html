@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PPI - Grupo 1</title>
+    <link rel="stylesheet" href="ppi2.css">
+</head>
+<body>
+    <header class="encabezado">
+        <h1>GRUPO 1</h1>
+        <h2>Lucas Brandan, Ivan Zaguzin, Pablo Leonardo Beguerie, Fernando Betancor y Maximiliano Zacarias</h2>
+    </header>
+
+    <section class="seccion aparecer" id="investigacion">
+        <h2>INTRODUCCION A NUESTRA PRESENTACION</h2>
+    
+        <div class="contenido aparecer">
+            <img src="images/presentacion.png">
+        </div>
+    </section>
+    <section class="seccion aparecer" id="investigacion">
+        <h2>INTRODUCCIÓN A NUESTRA PRESENTACIÓN</h2>
+    
+        <div class="contenido aparecer">
+            <video controls width="100%">
+                <source src="animacion.mp4" type="video/mp4">
+                Tu navegador no soporta la reproducción de video.
+            </video>
+        </div>
+    </section>
+    
+    <section class="seccion aparecer" id="investigacion">
+        <h2>NUESTRO CASO EJEMPLO</h2>
+    
+        <div class="contenido aparecer">
+            <img src="images/traductor1.png">
+        </div>
+    </section>
+
+    <section class="seccion aparecer" id="investigacion">
+        <h2>RED SOCIAL DE BUSQUEDA LABORAL</h2>
+    
+        <div class="contenido aparecer">
+            <img src="images/redlinkedin.png">
+        </div>
+    </section>
+    
+    
+
+    <section class="seccion" id="galeria">
+        <h2>TAREAS EN EL CRM</h2>
+        <div class="carrusel">
+            <div class="carrusel-slide active">
+                <img src="images/CRM_page-0001.jpg" alt="Imagen 1">
+            </div>
+            <div class="carrusel-slide">
+                <img src="images/CRM_page-0002.jpg" alt="Imagen 2">
+            </div>
+            <div class="carrusel-slide">
+                <img src="images/CRM_page-0003.jpg" alt="Imagen 3">
+            </div>
+            <div class="carrusel-slide active">
+                <img src="images/CRM_page-0004.jpg" alt="Imagen 4">
+            </div>
+            <div class="carrusel-slide active">
+                <img src="images/CRM_page-0005.jpg" alt="Imagen 5">
+            </div>
+            <div class="carrusel-slide active">
+                <img src="images/CRM_page-0006.jpg" alt="Imagen 6">
+            </div>
+            <div class="carrusel-slide active">
+                <img src="images/CRM_page-0007.jpg" alt="Imagen 7">
+            </div>
+            <div class="carrusel-slide active">
+                <img src="images/CRM_page-0008.jpg" alt="Imagen 8">
+            </div>
+            <div class="carrusel-slide active">
+                <img src="images/CRM_page-0009.jpg" alt="Imagen 9">
+            </div>
+            <div class="carrusel-slide active">
+                <img src="images/CRM_page-0010.jpg" alt="Imagen 10">
+            </div>
+            <div class="carrusel-slide active">
+                <img src="images/CRM_page-0011.jpg" alt="Imagen 10">
+            </div>
+            <button class="carrusel-btn prev">&#10094;</button>
+            <button class="carrusel-btn next">&#10095;</button>
+        </div>
+    </section>
+
+    <section class="seccion aparecer" id="investigacion">
+        <h2>AHORA A JUGAAAR!!</h2>
+    
+        <div class="contenido aparecer">
+            <img src="images/imagenjuego.png">
+        </div>
+    </section>
+    
+
+    <script>
+        const elementos = document.querySelectorAll('.aparecer');
+
+        const mostrarElemento = () => {
+            const alturaVentana = window.innerHeight;
+
+            elementos.forEach(el => {
+                const distancia = el.getBoundingClientRect().top;
+                if (distancia < alturaVentana - 100) {
+                    el.classList.add('visible');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', mostrarElemento);
+        window.addEventListener('load', mostrarElemento);
+    </script>
+
+    <script>
+        const slides = document.querySelectorAll('.carrusel-slide');
+        const nextBtn = document.querySelector('.carrusel-btn.next');
+        const prevBtn = document.querySelector('.carrusel-btn.prev');
+        let currentIndex = 0;
+    
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[index].classList.add('active');
+        }
+    
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % slides.length;
+            showSlide(currentIndex);
+        });
+    
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            showSlide(currentIndex);
+        });
+    
+        // Inicializar
+        showSlide(currentIndex);
+    </script>
+
+
+    
+
+
+</body>
+</html>
